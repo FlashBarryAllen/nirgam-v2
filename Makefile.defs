@@ -1,9 +1,9 @@
 ## Variable that points to SystemC installation path
 #SYSTEMC = ../some_path_to_systemc
-SYSTEMC = ${HOME}/libs/exec/systemc
+SYSTEMC = /usr/local/systemc-2.3.2
 
 INCDIR = -I. -I.. -I$(SYSTEMC)/include
-LIBDIR = -L. -L.. -L$(SYSTEMC)/lib-$(TARGET_ARCH)
+LIBDIR = -L. -L.. -L$(SYSTEMC)/lib-linux64
 
 LIBS   =  -lsystemc -lm -ldl $(EXTRA_LIBS)
 
@@ -20,16 +20,18 @@ application/src/Bursty.o : application/src/TG.o
 application/src/Trace_traffic.o : application/src/TG.o
 
 .cpp.o:
-	$(CC) $(CFLAGS) $(INCDIR) -o $@ -c $<
+	$(CC) $(CFLAGS) -fPIC $(INCDIR) -o $@ -c $<
 
 .cc.o:
-	$(CC) $(CFLAGS) $(INCDIR) -o $@ -c $<
+	$(CC) $(CFLAGS) -fPIC $(INCDIR) -o $@ -c $<
 
 application/lib/%.so : application/src/%.o
-	$(CC) -shared -W1,-soname,$@ -o $@ $<
+	mkdir -p application/lib
+	$(CC) -shared -Wl,-soname,$@ -o $@ $<
 
 router/lib/%.so : router/src/%.o
-	$(CC) -shared -W1,-soname,$@ -o $@ $<
+	mkdir -p router/lib
+	$(CC) -shared -Wl,-soname,$@ -o $@ $<
 
 ultraclean : clean cleanlogs cleanresults
 
