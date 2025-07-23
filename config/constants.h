@@ -31,13 +31,13 @@
 #define _NOC_CONSTANTS_H_
 
 /// debug output log for NIRGAM
-//#define DEBUG_NOC
+#define DEBUG_NOC
 
 /// current time
 #define CURRENT_TIME sc_simulation_time()
 
 /// number of virtual channels
-#define NUM_VCS 4
+#define NUM_VCS 1
 
 // parameters for topology
 /// maximum number of rows

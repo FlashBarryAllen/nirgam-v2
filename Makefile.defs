@@ -3,7 +3,7 @@
 SYSTEMC = /usr/local/systemc-2.3.2
 
 INCDIR = -I. -I.. -I$(SYSTEMC)/include
-LIBDIR = -L. -L.. -L$(SYSTEMC)/lib-linux64
+LIBDIR = -L. -L.. -L$(SYSTEMC)/lib-$(TARGET_ARCH)
 
 LIBS   =  -lsystemc -lm -ldl $(EXTRA_LIBS)
 

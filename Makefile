@@ -1,7 +1,7 @@
 # makefile
 
 # architecture
-TARGET_ARCH = linux
+TARGET_ARCH = linux64
 
 # compiler
 CC     = g++ 
