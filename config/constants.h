@@ -37,7 +37,7 @@
 #define CURRENT_TIME sc_simulation_time()
 
 /// number of virtual channels
-#define NUM_VCS 1
+#define NUM_VCS 4
 
 // parameters for topology
 /// maximum number of rows

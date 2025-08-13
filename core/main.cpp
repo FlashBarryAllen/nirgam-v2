@@ -88,7 +88,6 @@ int sc_main(int argc, char *argv[]) {
 	
 	// read simulator configuration (nirgam.config)
 	string nirgam_filename = string("config/nirgam.config");
-	//string nirgam_filename = string("config/examples/cbr_fixed/nirgam.config");
 	ifstream fil1;
 	fil1.open(nirgam_filename.c_str());
 	
@@ -329,7 +328,6 @@ int sc_main(int argc, char *argv[]) {
 		app_libname[i] = string("NULL");
 	}
 	string app_filename = string("config/application.config");
-	//string app_filename = string("config/examples/cbr_fixed/application.config");
 	ifstream app_fil;
 	app_fil.open(app_filename.c_str());
 	if(!app_fil.is_open()){
